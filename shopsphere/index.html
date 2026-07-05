@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopSphere — Intelligent Shopping, Beautifully Simple</title>
+<meta name="description" content="ShopSphere is an intelligent e-commerce platform: fast search, smart filtering, and a premium shopping experience across every category.">
+<meta name="theme-color" content="#0B0D12">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.svg">
+
+<!-- Preconnects for performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://dummyjson.com">
+<link rel="preconnect" href="https://cdn.dummyjson.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/modal.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
+</head>
+<body>
+
+<!-- ============ PAGE LOADER ============ -->
+<div class="page-loader" aria-hidden="true"><div class="loader-mark"></div></div>
+<div id="scroll-progress"></div>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<div id="cursor-dot" aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"></div>
+
+<!-- ============ TOASTS ============ -->
+<div class="toast-region" role="status" aria-live="polite"></div>
+
+<!-- ============ ANNOUNCEMENT ============ -->
+<div class="announce">Free shipping over $75 &nbsp;·&nbsp; <b>Mid-Season Sale</b> live now &nbsp;·&nbsp; New arrivals dropped weekly</div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#" class="logo" aria-label="ShopSphere home">
+      <span class="logo-mark" aria-hidden="true"></span> ShopSphere
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#marketplace" class="is-active">Marketplace</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#flash-sale">Flash Sale</a></li>
+        <li><a href="#new-arrivals">New Arrivals</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" class="js-search-input" placeholder="Search 100+ products…" aria-label="Search products" autocomplete="off">
+      <kbd>⌘K</kbd>
+      <div class="search-panel" role="listbox" aria-label="Search suggestions"></div>
+    </div>
+
+    <div class="header-actions">
+      <button class="icon-btn" aria-label="Account">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>
+      </button>
+      <button class="icon-btn js-wishlist-toggle" aria-label="Open wishlist" aria-expanded="false" aria-controls="wishlist-drawer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        <span class="count-badge js-wishlist-count">0</span>
+      </button>
+      <button class="icon-btn js-cart-toggle" aria-label="Open cart" aria-expanded="false" aria-controls="cart-drawer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        <span class="count-badge js-cart-count">0</span>
+      </button>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="signal-line" aria-hidden="true"></div>
+</header>
+
+<!-- ============ MOBILE DRAWER ============ -->
+<div class="mobile-drawer nav-drawer">
+  <div class="mobile-drawer-backdrop"></div>
+  <div class="mobile-drawer-panel">
+    <button class="btn btn--icon mobile-drawer-close" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="header-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" class="js-search-input" placeholder="Search products…" aria-label="Search products" autocomplete="off">
+      <div class="search-panel"></div>
+    </div>
+    <nav aria-label="Mobile">
+      <ul>
+        <li><a href="#marketplace">Marketplace</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#flash-sale">Flash Sale</a></li>
+        <li><a href="#new-arrivals">New Arrivals</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="mobile-drawer cart-drawer" id="cart-drawer">
+  <div class="mobile-drawer-backdrop"></div>
+  <div class="mobile-drawer-panel" role="dialog" aria-label="Shopping cart" aria-modal="true">
+    <div class="cart-drawer-head">
+      <h3>Your cart</h3>
+      <button class="btn btn--icon js-cart-close" aria-label="Close cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="cart-items js-cart-items"><!-- rendered by main.js --></div>
+    <div class="cart-drawer-foot">
+      <div class="cart-subtotal-row">
+        <span>Subtotal</span>
+        <span class="js-cart-subtotal">$0.00</span>
+      </div>
+      <p class="cart-note">Shipping and taxes calculated at checkout.</p>
+      <button class="btn btn--signal cart-checkout-btn" type="button">Checkout</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ WISHLIST DRAWER ============ -->
+<div class="mobile-drawer cart-drawer" id="wishlist-drawer">
+  <div class="mobile-drawer-backdrop"></div>
+  <div class="mobile-drawer-panel" role="dialog" aria-label="Wishlist" aria-modal="true">
+    <div class="cart-drawer-head">
+      <h3>Your wishlist</h3>
+      <button class="btn btn--icon js-wishlist-close" aria-label="Close wishlist">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="cart-items js-wishlist-items"><!-- rendered by main.js --></div>
+  </div>
+</div>
+
+<!-- ============ PRODUCT MODAL ============ -->
+<div class="product-modal" id="product-modal">
+  <div class="product-modal-backdrop"></div>
+  <div class="product-modal-panel" role="dialog" aria-modal="true" aria-label="Product details">
+    <button class="btn btn--icon product-modal-close" aria-label="Close product details">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="product-modal-body">
+      <div class="product-modal-gallery">
+        <div class="product-modal-main-img">
+          <img class="js-modal-main-img" src="" alt="">
+        </div>
+        <div class="product-modal-thumbs js-modal-thumbs"></div>
+      </div>
+      <div class="product-modal-info">
+        <p class="product-cat js-modal-cat"></p>
+        <h2 class="display-3 js-modal-title"></h2>
+        <p class="product-rating js-modal-rating"></p>
+        <div class="product-price-row js-modal-price"></div>
+        <p class="lede js-modal-desc"></p>
+        <p class="js-modal-stock stock-note"></p>
+        <div class="modal-qty-row">
+          <span>Quantity</span>
+          <div class="qty-stepper js-modal-qty-stepper">
+            <button type="button" data-action="dec" aria-label="Decrease quantity">−</button>
+            <span class="qty-val js-modal-qty">1</span>
+            <button type="button" data-action="inc" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
+        <div class="modal-action-row">
+          <button class="btn btn--signal js-modal-add-cart">Add to cart</button>
+          <button class="btn btn--icon js-modal-wishlist" aria-label="Toggle wishlist">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+          </button>
+        </div>
+        <div class="modal-related">
+          <h4>You might also like</h4>
+          <div class="modal-related-grid js-modal-related"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="aurora-mesh" aria-hidden="true">
+      <div class="aurora-blob b1"></div>
+      <div class="aurora-blob b2"></div>
+      <div class="aurora-blob b3"></div>
+    </div>
+    <div class="hero-grain" aria-hidden="true"></div>
+
+    <div class="wrap hero-inner">
+      <div>
+        <p class="eyebrow eyebrow--on-void">Intelligent commerce, since today</p>
+        <h1>
+          <span class="reveal-line"><span class="reveal-inner">Shopping that</span></span>
+          <span class="reveal-line"><span class="reveal-inner">reads the <em>signal</em>,</span></span>
+          <span class="reveal-line"><span class="reveal-inner">not the noise.</span></span>
+        </h1>
+        <p class="lede lede--on-void">ShopSphere pairs a search engine that actually understands you with a catalog curated for taste — so the right product surfaces in seconds, not scrolls.</p>
+        <div class="hero-cta-row">
+          <span class="magnetic"><a href="#marketplace" class="btn btn--signal">Explore Marketplace</a></span>
+          <span class="magnetic"><a href="#flash-sale" class="btn btn--ghost-void">View Flash Sale →</a></span>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="num"><span data-count-to="120" data-suffix="k+">0</span></div><div class="label">Products listed</div></div>
+          <div class="hero-stat"><div class="num"><span data-count-to="98" data-suffix="%">0</span></div><div class="label">On-time delivery</div></div>
+          <div class="hero-stat"><div class="num"><span data-count-to="4.9" data-suffix="/5">0</span></div><div class="label">Average rating</div></div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-card c1"><img data-hero-slot alt="" width="230" height="230" loading="eager"></div>
+        <div class="hero-card c2"><img data-hero-slot alt="" width="180" height="180" loading="eager"></div>
+        <div class="hero-card c3"><img data-hero-slot alt="" width="200" height="200" loading="eager"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CATEGORIES ============ -->
+  <section id="categories" class="section--tight">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="eyebrow">Browse</p>
+          <h2 class="display-3">Shop by category</h2>
+        </div>
+        <p class="lede">Six departments, endlessly refined — jump straight to what you came for.</p>
+      </div>
+      <div class="category-grid" data-reveal-stagger>
+        <a href="#marketplace" class="category-card" style="--cat-grad:linear-gradient(140deg,rgba(108,92,231,0.82),rgba(168,85,247,0.82))" data-cat-keys="tops,womens-dresses,mens-shirts">
+          <img class="category-img" alt="" loading="lazy" src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=600&q=80">
+          <span class="category-content">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M3 7h18M6 7v13a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+            <span class="name">Fashion</span><span class="count">tops · dresses · shirts</span>
+          </span>
+        </a>
+        <a href="#marketplace" class="category-card" style="--cat-grad:linear-gradient(140deg,rgba(0,194,168,0.82),rgba(8,145,168,0.82))" data-cat-keys="laptops,smartphones,tablets,mobile-accessories">
+          <img class="category-img" alt="" loading="lazy" src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80">
+          <span class="category-content">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h.01M15 9h.01M9 15c1 1 5 1 6 0"/></svg>
+            <span class="name">Electronics</span><span class="count">laptops · phones</span>
+          </span>
+        </a>
+        <a href="#marketplace" class="category-card" style="--cat-grad:linear-gradient(140deg,rgba(255,138,91,0.82),rgba(255,93,59,0.82))" data-cat-keys="beauty,skincare,skin-care,fragrances">
+          <img class="category-img" alt="" loading="lazy" src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=80">
+          <span class="category-content">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>
+            <span class="name">Beauty</span><span class="count">skincare · fragrance</span>
+          </span>
+        </a>
+        <a href="#marketplace" class="category-card" style="--cat-grad:linear-gradient(140deg,rgba(45,52,54,0.82),rgba(11,13,18,0.82))" data-cat-keys="mens-shoes,womens-shoes">
+          <img class="category-img" alt="" loading="lazy" src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&q=80">
+          <span class="category-content">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            <span class="name">Footwear</span><span class="count">running · casual</span>
+          </span>
+        </a>
+        <a href="#marketplace" class="category-card" style="--cat-grad:linear-gradient(140deg,rgba(242,183,5,0.82),rgba(255,138,91,0.82))" data-cat-keys="furniture,home-decoration">
+          <img class="category-img" alt="" loading="lazy" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80">
+          <span class="category-content">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>
+            <span class="name">Home</span><span class="count">decor · furniture</span>
+          </span>
+        </a>
+        <a href="#marketplace" class="category-card" style="--cat-grad:linear-gradient(140deg,rgba(108,92,231,0.82),rgba(0,194,168,0.82))" data-cat-keys="groceries">
+          <img class="category-img" alt="" loading="lazy" src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&q=80">
+          <span class="category-content">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="m12 2 3 7 7 1-5.2 5 1.3 7L12 18.5 5.9 22l1.3-7L2 10l7-1 3-7z"/></svg>
+            <span class="name">Groceries</span><span class="count">fresh · pantry</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MARKETPLACE / TRENDING ============ -->
+  <section id="marketplace">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="eyebrow">Marketplace</p>
+          <h2 class="display-3">Trending right now</h2>
+        </div>
+        <div class="tab-row" data-target="#trending-grid" data-badge-new="false">
+          <button class="tab-btn is-active">All</button>
+          <button class="tab-btn" data-category="smartphones">Tech</button>
+          <button class="tab-btn" data-category="womens-dresses">Fashion</button>
+          <button class="tab-btn" data-sort="discount">On Sale</button>
+        </div>
+      </div>
+      <div class="product-grid" id="trending-grid" data-reveal-stagger></div>
+    </div>
+  </section>
+
+  <!-- ============ FLASH SALE ============ -->
+  <section id="flash-sale" class="section--tight">
+    <div class="wrap">
+      <div class="flash-banner" data-reveal>
+        <div class="flash-title">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="url(#g)" stroke-width="1.8"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00C2A8"/><stop offset="100%" stop-color="#6C5CE7"/></linearGradient></defs><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z" fill="url(#g)" stroke="none"/></svg>
+          <div>
+            <h3>Flash Sale</h3>
+            <p>Up to 50% off — while stock lasts</p>
+          </div>
+        </div>
+        <div class="countdown" role="timer" aria-label="Time remaining on flash sale">
+          <div class="unit"><div class="val js-h">08</div><div class="lbl">Hours</div></div>
+          <div class="unit"><div class="val js-m">00</div><div class="lbl">Mins</div></div>
+          <div class="unit"><div class="val js-s">00</div><div class="lbl">Secs</div></div>
+        </div>
+        <a href="#" class="btn btn--signal">Shop the Sale</a>
+      </div>
+      <div class="product-grid" id="flashsale-grid" data-reveal-stagger></div>
+    </div>
+  </section>
+
+  <!-- ============ BEST SELLERS ============ -->
+  <section id="best-sellers" class="section--tight">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <div><p class="eyebrow">Fan favorites</p><h2 class="display-3">Best sellers</h2></div>
+        <p class="lede">Ranked by real customer ratings, refreshed daily.</p>
+      </div>
+      <div class="product-grid" id="bestsellers-grid" data-reveal-stagger></div>
+    </div>
+  </section>
+
+  <!-- ============ NEW ARRIVALS ============ -->
+  <section id="new-arrivals" class="section--tight">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <div><p class="eyebrow">Just landed</p><h2 class="display-3">New arrivals</h2></div>
+        <a href="#" class="btn btn--ghost">View all</a>
+      </div>
+      <div class="product-grid" id="newarrivals-grid" data-reveal-stagger></div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section id="testimonials" class="section--void">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <div><p class="eyebrow eyebrow--on-void">Word of mouth</p><h2 class="display-3">Loved by shoppers</h2></div>
+      </div>
+      <div class="swiper testimonial-swiper" data-reveal>
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <p class="stars">★★★★★</p>
+              <blockquote>"Search actually understands what I mean. I found the exact jacket I wanted in ten seconds — that never happens."</blockquote>
+              <div class="testimonial-person"><span class="testimonial-avatar">R</span><div><p class="name">Riya Sharma</p><p class="role">Verified buyer</p></div></div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <p class="stars">★★★★★</p>
+              <blockquote>"Checkout was three taps. No account wall, no surprise fees at the end. Refreshing, honestly."</blockquote>
+              <div class="testimonial-person"><span class="testimonial-avatar">D</span><div><p class="name">Daniel Cho</p><p class="role">Verified buyer</p></div></div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <p class="stars">★★★★★</p>
+              <blockquote>"The flash sale countdown had me refreshing all day — got a pair of shoes at 40% off. Worth it."</blockquote>
+              <div class="testimonial-person"><span class="testimonial-avatar">A</span><div><p class="name">Amara Obi</p><p class="role">Verified buyer</p></div></div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <p class="stars">★★★★★</p>
+              <blockquote>"Feels like a real product, not a template. Fast, clean, and the filters actually narrow things down properly."</blockquote>
+              <div class="testimonial-person"><span class="testimonial-avatar">L</span><div><p class="name">Lucas Ferreira</p><p class="role">Verified buyer</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NEWSLETTER ============ -->
+  <section class="section--tight">
+    <div class="wrap">
+      <div class="newsletter" data-reveal>
+        <div>
+          <h2>Get the drop before anyone else</h2>
+          <p>Early access to flash sales, new arrivals, and members-only pricing. One email a week, unsubscribe anytime.</p>
+        </div>
+        <form class="newsletter-form">
+          <label for="newsletter-email" class="sr-only">Email address</label>
+          <input id="newsletter-email" type="email" required placeholder="you@example.com" autocomplete="email">
+          <button type="submit">Notify me</button>
+        </form>
+        <p class="newsletter-note">By subscribing you agree to receive marketing emails. No spam, ever.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo"><span class="logo-mark"></span> ShopSphere</a>
+        <p>An intelligent shopping platform built for speed, taste, and trust. Discover more, decide faster.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4l16 16M20 4 4 20"/></svg></a>
+          <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 17c2-4 1-6 1-8a2 2 0 1 1 4 0c0 2-1.5 5-1.5 5"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Shop</h5>
+        <ul><li><a href="#marketplace">Marketplace</a></li><li><a href="#categories">Categories</a></li><li><a href="#flash-sale">Flash Sale</a></li><li><a href="#new-arrivals">New Arrivals</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h5>Account</h5>
+        <ul><li><a href="#">Sign in</a></li><li><a href="#">Order history</a></li><li><a href="#">Wishlist</a></li><li><a href="#">Addresses</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h5>Support</h5>
+        <ul><li><a href="#">Help center</a></li><li><a href="#">Shipping info</a></li><li><a href="#">Returns</a></li><li><a href="#">Contact us</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul><li><a href="#">About</a></li><li><a href="#">Careers</a></li><li><a href="#">Press</a></li><li><a href="#">Privacy</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> ShopSphere. All rights reserved.</span>
+      <div class="footer-payments"><span>VISA</span><span>MC</span><span>AMEX</span><span>PAY</span></div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>
+</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
