@@ -1,23 +1,25 @@
-# 🛍️ NovaCart
+# 🛍️ ShopSphere
 
-A modern and responsive e-commerce web application built using **HTML**, **CSS**, and **JavaScript**.
+**ShopSphere** is a modern, responsive e-commerce landing page built using **HTML5, CSS3, and JavaScript (ES6+)**. It features a clean UI, real-time product data, interactive animations, and a seamless shopping experience.
 
 ## 🚀 Features
 
 * Live Product Data using DummyJSON API
-* Smart Product Search
+* Smart Search with Suggestions
+* Sticky Navigation Bar
+* Hero Section with Animations
+* Trending Products
+* Flash Sale with Countdown Timer
+* Best Sellers & New Arrivals
 * Product Categories
-* Trending, Flash Sale, Best Sellers & New Arrivals
-* Quick View Product Modal
-* Shopping Cart with LocalStorage
 * Wishlist with LocalStorage
-* Add-to-Cart Animation
-* Live Search
+* Shopping Cart with LocalStorage
 * Toast Notifications
-* Skeleton Loading
-* Flash Sale Countdown Timer
+* Loading Skeletons
+* Back-to-Top Button
+* Scroll Progress Bar
 * Responsive Design
-* Performance Optimized UI
+* Accessible UI
 
 ## 🛠️ Technologies Used
 
@@ -25,9 +27,9 @@ A modern and responsive e-commerce web application built using **HTML**, **CSS**
 * CSS3
 * JavaScript (ES6+)
 * DummyJSON API
-* LocalStorage
 * GSAP
-* AOS
+* Swiper.js
+* LocalStorage
 * VS Code
 * Git
 * GitHub
@@ -35,21 +37,41 @@ A modern and responsive e-commerce web application built using **HTML**, **CSS**
 ## 📂 Project Structure
 
 ```text
-NovaCart/
+ShopSphere/
 │── index.html
-│── style.css
-│── script.js
-│── README.md
+│
+├── css/
+│   ├── tokens.css
+│   ├── base.css
+│   ├── header.css
+│   ├── hero.css
+│   ├── components.css
+│   └── footer.css
+│
+├── js/
+│   └── main.js
+│
+└── README.md
 ```
 
 ## ▶️ How to Run
 
-1. Download or clone the repository.
+1. Clone or download the repository.
 2. Open the project folder.
-3. Open **index.html** in your browser or use **Live Server** in VS Code.
+3. Open **index.html** in your browser, or use **Live Server** in VS Code.
+
+## 📌 Future Enhancements
+
+* Marketplace Page
+* Shopping Cart Page
+* Wishlist Page
+* Checkout Flow
+* Advanced API Integration
+* Performance Optimization
+* Accessibility Improvements
 
 ## 👨‍💻 Author
 
 **Ravulapalli Sai Ram**
 
-Web Development Internship Project – ApexPlanet Software Pvt. Ltd.
+Developed as part of the **ApexPlanet Web Development Internship**.
